@@ -37,9 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
-    # QA uses Test-QA; Staging and UAT use their own GitHub Environments.
+    # QA uses QA; Staging and UAT use their own GitHub Environments.
     environment:
-      name: ${{ github.event_name == 'workflow_dispatch' && inputs.target_environment == 'Staging' && 'Staging' || github.event_name == 'workflow_dispatch' && inputs.target_environment == 'UAT' && 'UAT' || 'Test-QA' }}
+      name: ${{ github.event_name == 'workflow_dispatch' && inputs.target_environment == 'Staging' && 'Staging' || github.event_name == 'workflow_dispatch' && inputs.target_environment == 'UAT' && 'UAT' || 'QA' }}
 
     env:
       TARGET_ENV: ${{ github.event_name == 'workflow_dispatch' && inputs.target_environment || 'QA' }}
