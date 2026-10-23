@@ -1,0 +1,14 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# MCP - may contain credentials
+.mcp.json
+.env
+.DS_Store
+**/.DS_Store
