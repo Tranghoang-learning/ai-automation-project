@@ -1,0 +1,6 @@
+Story ID,Requirement / AC,Test condition,Test case ID,Risk,Test type,Coverage,Latest result
+SCRUM-2,AC-01,Successful Admin Authentication,TC-SCRUM-2-01,High,Positive,"AC-01, AC-02, AC-03, AC-14",Passed
+SCRUM-2,AC-02,Authentication Failure (Invalid Credentials),TC-SCRUM-2-02,High,Negative,"AC-04, AC-05, AC-06, AC-15",Passed
+SCRUM-2,AC-03,Mandatory Field Validation (Empty/Whitespace),TC-SCRUM-2-03,Medium,Negative,"AC-07, AC-08, AC-09, AC-10, AC-11",Passed
+SCRUM-2,AC-04,System Error Handling (API 500),TC-SCRUM-2-04,Medium,Negative,"AC-12, AC-13",Passed
+SCRUM-2,AC-05,Non-standard Format Input,TC-SCRUM-2-05,Low,Boundary,AC-17,Passed

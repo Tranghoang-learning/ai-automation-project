@@ -1,0 +1,6 @@
+Test ID,Title,Precondition,Test Data,Steps,Expected Result,Priority
+TC-SCRUM-2-01,Successful Admin Authentication,"User is on Login page",,"1. Enter valid username\n2. Enter valid password\n3. Click Login","1. User is authenticated\n2. Redirected to Dashboard\n3. Page title is 'Dashboard'",P1
+TC-SCRUM-2-02,Authentication Failure (Invalid Credentials),"User is on Login page",,"1. Enter invalid credential combinations (Valid U/Inv P, Inv U/Valid P, Inv U/Inv P, Unreg U)\n2. Click Login","1. Login fails\n2. Remains on Login page\n3. Displays 'Invalid credentials'\n4. No session created",P1
+TC-SCRUM-2-03,Mandatory Field Validation (Empty/Whitespace),"User is on Login page",,"1. Leave Username or Password empty/whitespace\n2. Click Login","1. No API request sent\n2. 'Required' message appears under the empty field(s)",P2
+TC-SCRUM-2-04,System Error Handling (API 500),"User is on Login page",,"1. Enter valid credentials\n2. Simulate API 500 error\n3. Click Login","1. Login fails\n2. Displays 'Internal Server Error'",P2
+TC-SCRUM-2-05,Non-standard Format Input,"User is on Login page",,"1. Enter username with special characters\n2. Enter valid password\n3. Click Login","System validates login based on registered account regardless of character format",P3
