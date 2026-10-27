@@ -31,12 +31,40 @@ export const TestData = {
     { testcase: 'whitespaceBoth', username: '   ', password: '   ', description: 'Both fields whitespace-only' }
   ],
 
+  // DASHBOARD
+  dashboardTitle: 'Dashboard',
+  dashboardUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index',
+
+  // Left-navigation
+  navigationItems: [
+    { name: 'Admin', href: '/web/index.php/admin/viewAdminModule' },
+    { name: 'PIM', href: '/web/index.php/pim/viewPimModule' },
+    { name: 'Leave', href: '/web/index.php/leave/viewLeaveModule' },
+    { name: 'Time', href: '/web/index.php/time/viewTimeModule' },
+    {
+      name: 'Recruitment',
+      href: '/web/index.php/recruitment/viewRecruitmentModule',
+    },
+    { name: 'My Info', href: '/web/index.php/pim/viewMyDetails' },
+    {
+      name: 'Performance',
+      href: '/web/index.php/performance/viewPerformanceModule',
+    },
+    { name: 'Dashboard', href: '/web/index.php/dashboard/index' },
+    { name: 'Directory', href: '/web/index.php/directory/viewDirectory' },
+    {
+      name: 'Maintenance',
+      href: '/web/index.php/maintenance/viewMaintenanceModule',
+    },
+    { name: 'Claim', href: '/web/index.php/claim/viewClaimModule' },
+    { name: 'Buzz', href: '/web/index.php/buzz/viewBuzz' }
+  ],
 };
 
 export const ErrorMessages = {
   invalidCredentials: 'Invalid credentials',
   requiredField: 'Required',
-  serviceError: 'Internal server error'
+  serviceError: 'Internal Server Error'
 };
 
 export const Urls = {

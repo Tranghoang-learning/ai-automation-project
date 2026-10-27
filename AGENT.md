@@ -33,13 +33,13 @@ The project follows a structured Software Testing Life Cycle (STLC). Use the fol
 ## Conventions
 
 - **IDs**: 
-  - Story = Jira key (`QA-12`)
+  - Story = Jira key (`SCRUM-12`)
   - Acceptance Criterion = `AC-<n>`
-  - Test Case = `TC-<key>-<nn>` (e.g., `TC-QA-12-03`)
+  - Test Case = `TC-<key>-<nn>` (e.g., `TC-SCRUM-12-03`)
   - Bug = Jira key, or `BUG-<slug>` before it's filed.
 - **Tagging**: Every scenario and spec is tagged: `@<KEY> @TC-<key>-<nn> @P1|@P2|@P3` and `@smoke` or `@regression`.
-- **Naming**: Spec titles start with the TC id: `test('TC-QA-12-02 rejects an empty title', ...)`.
-- **Git**: Branches and PRs include the Jira key (`QA-12-add-filter-tests`) so Jira links them.
+- **Naming**: Spec titles start with the TC id: `test('TC-SCRUM-12-02 rejects an empty title', ...)`.
+- **Git**: Branches and PRs include the Jira key (`SCRUM-12-add-filter-tests`) so Jira links them.
 - **Locators**: `getByRole`, `getByLabel`, `getByPlaceholder`, `getByTestId`. No CSS/XPath chains, no `waitForTimeout`.
 - **Data**: Test data from fixtures or `.env`; never hard-code secrets. Never edit `.env*`, `playwright/.auth/` or `*-snapshots/` baselines (a hook blocks it).
 
@@ -51,9 +51,9 @@ The project follows a structured Software Testing Life Cycle (STLC). Use the fol
   - S3 Minor – easy workaround
   - S4 Trivial – cosmetic.
 - **Priority** (urgency): 
-  - P1 fix this sprint, blocks release
-  - P2 this sprint if capacity
-  - P3 backlog. 
+  - **P1**: Critical path, Smoke tests, or S1-S2 impact.
+  - **P2**: Core functionality or S3 impact.
+  - **P3**: Edge cases, Cosmetic, or S4 impact.
 - **Mapping**: Map to Jira priority Highest/High/Medium/Low.
 
 ## Definition of Done (QA view)

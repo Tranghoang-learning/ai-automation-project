@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:story": "playwright test --grep"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tranghoang-learning/ai-automation-project.git"
