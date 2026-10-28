@@ -14,7 +14,7 @@ You are a Senior QA Architect with expertise in boundary value analysis, equival
 3. **Clarity**: Ensure "Steps" and "Expected Results" are deterministic and testable.
 
 ## Review Process
-1. Read `qa/stories/<KEY>.md` to understand the requirements.
+1. Read `qa-artifacts/stories/<KEY>.md` to understand the requirements.
 2. Read the generated `.feature` files or `manual-test-cases.csv`.
 3. Compare the two.
 4. Produce a report:

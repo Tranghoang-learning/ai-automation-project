@@ -1,0 +1,43 @@
+Test ID,Test Summary,Precondition,Steps,Expected Result,Priority
+TC-SCRUM-19-01,Verify the left navigation sidebar is displayed completely on the Dashboard,Authenticated Admin is on the Dashboard page,"1. Observe the left navigation sidebar
+2. Verify the sidebar and main content presentation
+3. Verify the sidebar header and navigation controls","1. The sidebar appears in the left navigation area of the Dashboard
+2. The OrangeHRM logo is displayed
+3. Navigation items are vertical and each has an icon and label
+4. The sidebar is visually distinct from main content
+5. The collapse control is displayed while expanded",P1
+TC-SCRUM-19-02,Verify the navigation items are displayed in the specified order,Authenticated Admin is on the Dashboard page,"1. Observe the complete navigation item list
+2. Compare item names and positions to the required sequence","1. Search, Admin, PIM, Leave, Time, Recruitment, My Info, Performance, Dashboard, Directory, Maintenance, Claim, and Buzz are displayed in that order
+2. Search is separated from the remaining items",P1
+TC-SCRUM-19-03,Verify an available navigation item opens its associated destination,Authenticated Admin is on an authorized page and the destination list is confirmed,"1. Select one available navigation item
+2. Observe the destination page
+3. Verify the corresponding navigation state","1. The associated destination is displayed
+2. Authentication and authorization rules are satisfied
+3. The corresponding navigation item is active",P1
+TC-SCRUM-19-04,Verify the Dashboard navigation item is active on Dashboard,Authenticated Admin is on the Dashboard page,Observe the Dashboard navigation item,The Dashboard navigation item is visually active, P1
+TC-SCRUM-19-05,Verify navigation active state remains synchronized with the displayed page,Authenticated Admin navigates successfully to another available page,Select an available navigation item and observe both the destination and navigation state,"1. The destination is displayed
+2. The corresponding navigation item is active
+3. The active navigation item remains consistent with the displayed page",P1
+TC-SCRUM-19-06,Verify suggested collapse and expand behavior when sidebar support is confirmed,Requirement confirmation exists that collapse and expansion are supported; authenticated Admin is viewing the expanded Dashboard sidebar,"1. Collapse the sidebar
+2. Verify sidebar state main content layout and essential content
+3. Expand the sidebar
+4. Verify sidebar state main content layout and essential content","1. The sidebar collapses and remains non-obstructive to essential content
+2. Main content accommodates the collapsed sidebar
+3. The sidebar expands and remains non-obstructive to essential content
+4. Main content accommodates the expanded sidebar",P1
+TC-SCRUM-19-07,Verify suggested live sidebar search reflects the latest supported input,Sidebar Search behavior and matching rules are confirmed; authenticated Admin is on Dashboard; navigation items include Admin,"1. Enter A in Search
+2. Observe displayed items
+3. Enter Admin
+4. Observe displayed items
+5. Enter ad and observe displayed items","1. Search output changes according to the confirmed matching rules
+2. The displayed items reflect the latest search input",P1
+TC-SCRUM-19-08,Verify suggested no-results behavior for an unmatched search,Sidebar Search behavior is confirmed and a keyword that matches no item is available,Enter the confirmed no-match keyword,The exact message "no result found" is displayed and Search remains available for continued input, P2
+TC-SCRUM-19-09,Verify suggested clearing behavior restores the full navigation list,Sidebar clear behavior is confirmed; a Search keyword has produced a filtered list,"1. Enter a search keyword
+2. Clear Search
+3. Observe the navigation list","1. Previous search results are cleared
+2. All navigation items are displayed again",P1
+TC-SCRUM-19-10,Verify suggested live search continues after characters are deleted,Sidebar Search behavior is confirmed; authenticated Admin is on Dashboard,"1. Enter an Admin search keyword
+2. Delete one or more characters
+3. Observe the displayed items
+4. Continue editing the keyword","1. Search output reflects each resulting keyword according to the confirmed matching rules
+2. Search remains available for continued input",P2

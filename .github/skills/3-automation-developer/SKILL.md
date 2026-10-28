@@ -45,7 +45,7 @@ Create or update the spec file in `tests/`.
 
 ### Step 3: Execution & Stabilization
 
-- Run the tests: `npm run test:story -- @<KEY>`.
+- Run the tests: `npm run test -- @<KEY>`.
 - **Anti-Flakiness**: If a test fails or is inconsistent, do NOT use `page.waitForTimeout()`. Instead:
     - Use `locator.waitFor()`.
     - Use web-first assertions that poll automatically.
@@ -63,7 +63,7 @@ Create or update the spec file in `tests/`.
 
 ## 6. Output Format
 - **Page Objects**: TypeScript classes in `pages/` following the project naming convention.
-- **Spec Files**: TypeScript files in `tests/` that are fully tagged and named per `CLAUDE.md`.
+- **Spec Files**: TypeScript files in `tests/` that are fully tagged and named per `AGENT.md`.
 - **Fixtures**: Any necessary test data or mock responses in `fixtures/`.
 - **utils/**: Any utility functions that support the tests, ensuring they are reusable and maintainable.
 - **test data**: Any necessary test data or mock responses in `fixtures/`.

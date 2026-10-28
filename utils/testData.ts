@@ -41,24 +41,45 @@ export const TestData = {
     { name: 'PIM', href: '/web/index.php/pim/viewPimModule' },
     { name: 'Leave', href: '/web/index.php/leave/viewLeaveModule' },
     { name: 'Time', href: '/web/index.php/time/viewTimeModule' },
-    {
-      name: 'Recruitment',
-      href: '/web/index.php/recruitment/viewRecruitmentModule',
-    },
+    { name: 'Recruitment', href: '/web/index.php/recruitment/viewRecruitmentModule' },
     { name: 'My Info', href: '/web/index.php/pim/viewMyDetails' },
-    {
-      name: 'Performance',
-      href: '/web/index.php/performance/viewPerformanceModule',
-    },
+    { name: 'Performance', href: '/web/index.php/performance/viewPerformanceModule' },
     { name: 'Dashboard', href: '/web/index.php/dashboard/index' },
     { name: 'Directory', href: '/web/index.php/directory/viewDirectory' },
-    {
-      name: 'Maintenance',
-      href: '/web/index.php/maintenance/viewMaintenanceModule',
-    },
+    { name: 'Maintenance', href: '/web/index.php/maintenance/viewMaintenanceModule' },
     { name: 'Claim', href: '/web/index.php/claim/viewClaimModule' },
     { name: 'Buzz', href: '/web/index.php/buzz/viewBuzz' }
   ],
+
+  navigationSidebar: {
+    items: [
+      'Admin', 'PIM', 'Leave', 'Time', 'Recruitment', 'My Info',
+      'Performance', 'Dashboard', 'Directory', 'Maintenance', 'Claim', 'Buzz'
+    ],
+    destinations: {
+      Admin: /\/admin\/viewSystemUsers$/,
+      PIM: /\/pim\/viewEmployeeList$/,
+      Leave: /\/leave\/viewLeaveList$/,
+      Time: /\/time\/viewEmployeeTimesheet$/,
+      Recruitment: /\/recruitment\/viewCandidates$/,
+      'My Info': /\/pim\/viewPersonalDetails\/empNumber\/\d+$/,
+      Performance: /\/performance\/searchEvaluatePerformanceReview$/,
+      Dashboard: /\/dashboard\/index$/,
+      Directory: /\/directory\/viewDirectory$/,
+      Maintenance: /\/maintenance\/purgeEmployee$/,
+      Claim: /\/claim\/viewAssignClaim$/,
+      Buzz: /\/buzz\/viewBuzz$/,
+    },
+    searchQueries: ['A', 'Admin', 'ad'],
+    noMatchQuery: 'zzzz-no-match',
+    filteredQuery: 'Admin',
+    deletedCharacterQuery: 'Admi',
+    expectedSearchResult: ['Admin'],
+    primaryItem: 'Admin',
+    dashboardItem: 'Dashboard',
+    endpointItems: ['Admin', 'Buzz'],
+    emptyQuery: '',
+  },
 };
 
 export const ErrorMessages = {

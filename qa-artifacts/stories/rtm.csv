@@ -4,3 +4,13 @@ SCRUM-2,AC-02,Authentication Failure (Invalid Credentials),TC-SCRUM-2-02,High,Ne
 SCRUM-2,AC-03,Mandatory Field Validation (Empty/Whitespace),TC-SCRUM-2-03,Medium,Negative,"AC-07, AC-08, AC-09, AC-10, AC-11",Passed
 SCRUM-2,AC-04,System Error Handling (API 500),TC-SCRUM-2-04,Medium,Negative,"AC-12, AC-13",Passed
 SCRUM-2,AC-05,Non-standard Format Input,TC-SCRUM-2-05,Low,Boundary,AC-17,Passed
+SCRUM-19,AC-01,Display expanded sidebar on Dashboard,TC-SCRUM-19-01,High,Positive,AC-01,Pending
+SCRUM-19,AC-02,Display navigation items in required order,TC-SCRUM-19-02,High,Positive,"AC-02, AC-06",Pending
+SCRUM-19,AC-03,Open available navigation destinations,TC-SCRUM-19-03,High,Positive,"AC-03, AC-04; requirement clarification needed for destinations and authorization",Pending
+SCRUM-19,AC-04,Identify Dashboard as active item,TC-SCRUM-19-04,High,Positive,AC-04,Pending
+SCRUM-19,AC-04,Keep active item synchronized with displayed page,TC-SCRUM-19-05,High,State Transition,"AC-03, AC-04; requirement clarification needed for nested and redirected pages",Pending
+SCRUM-19,AC-05,Suggestion: collapse and expand supported sidebar,TC-SCRUM-19-06,High,Suggestion,AC-05; requirement clarification needed for supported state,Pending
+SCRUM-19,AC-06,Suggestion: update search for latest supported input,TC-SCRUM-19-07,High,Suggestion,AC-06; requirement clarification needed for Search scope and matching rules,Pending
+SCRUM-19,AC-06,Suggestion: report no matching navigation items,TC-SCRUM-19-08,Medium,Suggestion,AC-06; requirement clarification needed for matching rules,Pending
+SCRUM-19,AC-06,Suggestion: clear Search and restore all navigation items,TC-SCRUM-19-09,High,Suggestion,AC-06; requirement clarification needed for clear behavior,Pending
+SCRUM-19,AC-06,Suggestion: continue Search after deleting characters,TC-SCRUM-19-10,Medium,State Transition,AC-06; requirement clarification needed for matching rules,Pending
