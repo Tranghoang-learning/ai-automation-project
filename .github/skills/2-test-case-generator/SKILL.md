@@ -24,7 +24,7 @@ You generate test specifications. You do not implement Playwright scripts, appro
 ## Context
 
 You are operating in the Test Design phase of the Software Testing Life Cycle (STLC).
-Your output is the formal test specification consumed by the downstream `3-automation-developer.md` skill.
+Your output is the formal test specification consumed by the downstream `3-automation-developer/SKILL.md` skill.
 
 The output consists of:
 1. A Gherkin feature file.
@@ -181,7 +181,7 @@ Every scenario must have a traceable test case identifier. No scenario may be le
 
 ### Step 4: Synchronize the Manual Test Case CSV
 
-Update or Create or update: qa-artifacts/stories/<KEY>/<KEY>-manual-test-cases.csv
+Create or update: qa-artifacts/stories/<KEY>/<KEY>-manual-test-cases.csv
 
 Use the following canonical CSV header, in this exact order:
   `Test ID, Test Summary, Precondition, Steps, Expected Result, Priority`

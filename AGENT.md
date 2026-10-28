@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENT.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -12,15 +12,15 @@ The project follows a structured Software Testing Life Cycle (STLC). Use the fol
 
 | Phase | Skill/Command | Output |
 | :--- | :--- | :--- |
-| **Sprint Planning** | `/0-test-planing <sprint>` $\rightarrow$ `/tag-regression <TCS>` | `qa/plans/`, `risk-register.md`, `automation-strategy.md` |
-| **Reqs Analysis** | `/1-analyze-story <KEY>` | `qa/stories/<KEY>/<KEY>.md`, `qa/rtm.csv` |
-| **Test Design** | `/2-test-case-generator <KEY>` | `features/<KEY>*.feature`, `qa/stories/<KEY>/manual-test-cases.csv` |
+| **Sprint Planning** | `/0-test-planing <sprint>` $\rightarrow$ `/tag-regression <TCS>` | `qa-artifacts/plans/`, `risk-register.md`, `automation-strategy.md` |
+| **Reqs Analysis** | `/1-analyze-story <KEY>` | `qa-artifacts/stories/<KEY>/<KEY>.md`, `qa-artifacts/rtm.csv` |
+| **Test Design** | `/2-test-case-generator <KEY>` | `features/<KEY>*.feature`, `qa-artifacts/stories/<KEY>/manual-test-cases.csv` |
 | **Develop Scripts**| `/3-automation-developer <KEY>`| `pages/`, `tests/*.spec.ts` (tagged with `@<KEY>`) |
 | **Test Execution** | `npm run test:story -- @<KEY>`| `playwright-report/` |
-| **Test Analysis** | `failure-triager` agent | `qa/reports/<KEY>-triage.md` |
-| **Test Reporting** | `/4-test-report <KEY/sprint>` | `qa/reports/<KEY/sprint>.md`, `qa/rtm.csv` (Updated) |
-| **Fixing** | `/bug-report` $\rightarrow$ `/retest` | Jira Bug, `qa/bugs/<KEY>.md` |
-| **Test Closure** | `/5-test-closure <sprint>` | `qa/closure/<sprint>.md` |
+| **Test Analysis** | `failure-triager` agent | `qa-artifacts/reports/<KEY>-triage.md` |
+| **Test Reporting** | `/4-test-report <KEY/sprint>` | `qa-artifacts/reports/<KEY/sprint>.md`, `qa/rtm.csv` (Updated) |
+| **Fixing** | `/bug-report` $\rightarrow$ `/retest` | Jira Bug, `qa-artifacts/bugs/<KEY>.md` |
+| **Test Closure** | `/5-test-closure <sprint>` | `qa-artifacts/closure/<sprint>.md` |
 
 **Note:** Sprint Planning must be completed and approved before starting Reqs Analysis for any story in the current sprint.
 
@@ -91,22 +91,31 @@ npx playwright show-report
 
 ```
 ai-automation-project/
-├── .github/workflows/playwright.yml  # CI pipeline
-├── .claude/skills/                   # Custom STLC skills
-├── .claude/agents/                   # Specialized agent personas
-├── fixtures/                         # Test fixtures
+├── .claude/
+│   ├── agents/                       # Specialized QA agent personas
+│   ├── prompts/                      # Shared prompt library
+│   ├── rules/                        # Repository-specific agent rules
+│   └── skills/                       # Claude STLC workflow skills
+├── .github/
+│   ├── agents/                       # GitHub Copilot agent personas
+│   ├── skills/                       # GitHub STLC workflow skills
+│   └── workflows/playwright.yml      # CI pipeline
+├── .vscode/mcp.json                  # VS Code MCP configuration
+├── features/                         # Gherkin feature files
+├── fixtures/auth.fiixture.ts         # Authentication fixture (keep filename as-is)
 ├── pages/                            # Page Object Model classes
-├── tests/                            # Test files (tagged with @KEY)
-├── features/                         # Gherkin .feature files
-├── qa/                               # QA Documentation
-│   ├── plans/                        # Sprint test plans
-│   ├── stories/                      # Story folders (Analysis & Manual Tests)
-│   ├── reports/                      # Execution & Triage reports
-│   ├── bugs/                          # Bug documentation
-│   └── closure/                      # Closure reports
-│   └── rtm.csv                      # Requirements Traceability Matrix
-├── playwright.config.ts             # Playwright configuration
-└── package.json                     # Dependencies and scripts
+├── qa-artifacts/
+│   ├── cloures/                      # Closure artifacts
+│   ├── plan/                         # Sprint test plans
+│   ├── report/                       # Execution and triage reports
+│   └── stories/<STORY_KEY>/          # Analysis, test cases, and test-data specs
+├── tests/                            # Playwright test files (tagged with @<KEY>)
+├── utils/testData.ts                 # Shared test data helpers
+├── playwright-report/                # Generated HTML Playwright report
+├── test-results/                     # Generated Playwright artifacts
+├── playwright.config.ts              # Playwright configuration
+├── package.json                      # Dependencies and scripts
+└── tsconfig.json                     # TypeScript configuration
 ```
 
 ## Test Architecture & Standards
