@@ -80,7 +80,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Chromium
+      - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
       - name: Configure target URL
@@ -141,23 +141,9 @@ jobs:
             console.log("Target hostname:", parsed.hostname);
           '
 
-      - name: List selected tests
-        run: |
-          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-            npx playwright test --list --grep "@${{ inputs.suite }}" --project=chromium
-          else
-            npx playwright test --list --grep "@story" --project=chromium
-          fi
-
-      - name: Run Story Tests
-        if: github.event_name != 'workflow_dispatch'
-        run: npx playwright test --grep "@story" --project=chromium
-
-      - name: Run Selected Suite
-        if: github.event_name == 'workflow_dispatch'
-        env:
-          SUITE: ${{ inputs.suite }}
-        run: npx playwright test --grep "@${SUITE}" --project=chromium
+      - name: Run Playwright Tests
+        shell: bash
+        run: npx playwright test
 
       - name: Upload Playwright Evidence
         if: always()
