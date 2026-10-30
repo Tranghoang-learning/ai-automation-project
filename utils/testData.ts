@@ -35,6 +35,19 @@ export const TestData = {
   dashboardTitle: 'Dashboard',
   dashboardUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index',
 
+  // Application footer
+  footer: {
+    version: 'OrangeHRM OS 5.9',
+    copyright: '© 2005 - 2026 OrangeHRM, Inc. All rights reserved.',
+    versionPattern: /OrangeHRM OS \d+\.\d+/,
+    copyrightPattern: /© 2005 - \d{4} OrangeHRM, Inc\. All rights reserved\./,
+    shortPageViewport: { width: 1920, height: 600 },
+    viewportBottomTolerance: 24,
+    loginPathPattern: /\/auth\/login$/,
+    pimPathPattern: /\/pim\/viewEmployeeList$/,
+    pimNavigationItem: 'PIM',
+  },
+
   // Left-navigation
   navigationItems: [
     { name: 'Admin', href: '/web/index.php/admin/viewAdminModule' },

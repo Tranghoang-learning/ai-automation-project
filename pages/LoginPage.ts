@@ -11,8 +11,8 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.usernameInput = page.getByRole('textbox', { name: 'Username' });
-    this.passwordInput = page.getByRole('textbox', { name: 'Password' });
+    this.usernameInput = page.getByPlaceholder('Username');
+    this.passwordInput = page.getByPlaceholder('Password');
     this.loginButton = page.getByRole('button', { name: 'Login' });
 
     this.errorMessage = page.getByText('Invalid credentials');
@@ -28,8 +28,16 @@ export class LoginPage {
       .locator('.oxd-input-field-error-message');
   }
 
-  async navigate() {
+  async navigate(): Promise<void> {
     await this.page.goto('/');
+    await this.expectLoaded();
+  }
+
+  async expectLoaded(): Promise<void> {
+    await expect(this.page).toHaveURL(/\/auth\/login(?:\/)?(?:\?.*)?$/);
+    await expect(this.usernameInput).toBeVisible();
+    await expect(this.passwordInput).toBeVisible();
+    await expect(this.loginButton).toBeVisible();
   }
 
   async fillUsername(username: string) {
