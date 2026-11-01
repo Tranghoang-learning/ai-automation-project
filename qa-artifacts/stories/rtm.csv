@@ -14,3 +14,11 @@ SCRUM-19,AC-06,Suggestion: update search for latest supported input,TC-SCRUM-19-
 SCRUM-19,AC-06,Suggestion: report no matching navigation items,TC-SCRUM-19-08,Medium,Suggestion,AC-06; requirement clarification needed for matching rules,Pending
 SCRUM-19,AC-06,Suggestion: clear Search and restore all navigation items,TC-SCRUM-19-09,High,Suggestion,AC-06; requirement clarification needed for clear behavior,Pending
 SCRUM-19,AC-06,Suggestion: continue Search after deleting characters,TC-SCRUM-19-10,Medium,State Transition,AC-06; requirement clarification needed for matching rules,Pending
+SCRUM-22,AC-01,Display footer on shared-layout authenticated page,TC-SCRUM-22-01,High,Positive,AC-01,Pending
+SCRUM-22,AC-01,Footer accessibility at bottom of long page,TC-SCRUM-22-02,High,Positive,AC-01; requirement clarification needed for positioning,Pending
+SCRUM-22,AC-01,Footer positioning on short page,TC-SCRUM-22-03,High,Positive,AC-01,Pending
+SCRUM-22,AC-02,Display application version,TC-SCRUM-22-04,High,Positive,AC-02; approved test value OrangeHRM OS 5.9,Pending
+SCRUM-22,AC-02,Version consistency across shared-layout pages,TC-SCRUM-22-05,High,Positive,AC-02; requirement clarification needed for release-specific source,Pending
+SCRUM-22,AC-03,Display copyright notice,TC-SCRUM-22-06,High,Positive,"AC-03; approved test value © 2005 - 2026 OrangeHRM, Inc. All rights reserved.",Pending
+SCRUM-22,ACs 02-03,Suggestion: release information consistency across pages,TC-SCRUM-22-07,High,Suggestion,"AC-02, AC-03; requirement clarification needed for release-specific values and metadata source",Pending
+SCRUM-22,AC-01,Footer is displayed on the Login page,TC-SCRUM-22-08,High,Automated,Evidence confirmed: the loaded Login page displays the footer,Automated

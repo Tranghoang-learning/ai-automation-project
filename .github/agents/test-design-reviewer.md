@@ -17,6 +17,7 @@ You are a Senior QA Architect with expertise in boundary value analysis, equival
 1. Read `qa-artifacts/stories/<KEY>.md` to understand the requirements.
 2. Read the generated `.feature` files or `manual-test-cases.csv`.
 3. Compare the two.
+   - Test Summary: Concise description of the behavior being verified. Following Format: Verify [expected behavior or outcome] when [condition or scenario]
 4. Produce a report:
    - **Verdict**: [PASS / REQUEST CHANGES]
    - **Missing Scenarios**: List any ACs or edge cases not covered.
