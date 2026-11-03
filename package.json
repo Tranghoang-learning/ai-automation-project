@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:story": "playwright test --grep"
+    "test:story": "playwright test --grep",
+    "validate:tc": "node scripts/validate-tc.cjs"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,11 @@
     "playwright": "^1.64.1"
   },
   "devDependencies": {
+    "@cucumber/gherkin": "^42.0.1",
+    "@cucumber/messages": "^34.2.1",
     "@playwright/test": "^1.64.1",
     "@types/node": "^26.6.5",
+    "csv-parse": "^7.0.3",
     "typescript": "^7.0.2"
   }
 }

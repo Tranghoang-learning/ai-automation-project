@@ -27,7 +27,7 @@ The project follows a structured Software Testing Life Cycle (STLC). Use the fol
 ## Specialized Agents
 
 - **`test-design-reviewer`**: Audits test cases for AC coverage and edge cases.
-- **`automation-reviewer`**: Enforces POM adherence and accessibility-first locators.
+- **`automation-code-reviewer`**: Enforces POM adherence and accessibility-first locators.
 - **`failure-triager`**: Categorizes failures as BUG, FLAKE, or ENV to reduce pipeline noise.
 
 ## Conventions
@@ -42,6 +42,19 @@ The project follows a structured Software Testing Life Cycle (STLC). Use the fol
 - **Git**: Branches and PRs include the Jira key (`SCRUM-12-add-filter-tests`) so Jira links them.
 - **Locators**: `getByRole`, `getByLabel`, `getByPlaceholder`, `getByTestId`. No CSS/XPath chains, no `waitForTimeout`.
 - **Data**: Test data from fixtures or `.env`; never hard-code secrets. Never edit `.env*`, `playwright/.auth/` or `*-snapshots/` baselines (a hook blocks it).
+
+- **Extra IDs**: scenario in the analysis = `SC-<KEY>-<nn>`; test condition = `COND-<KEY>-<nn>`.
+- **Readiness** (analysis header): `Ready` | `Ready with assumptions` | `Blocked by open questions`.
+- **Tags**: every scenario has `@<KEY> @TC-<key>-<nn> @P1|@P2|@P3`.
+  Optional: `@manual` (not automated).
+- **Scenario ↔ TC ID is 1:1.** A Scenario Outline is one scenario. Its Examples table has a
+  `case` column; Playwright titles read `TC-<key>-<nn> [<case>] <summary>`.
+- **Gherkin placeholders** (`<valid_user>`, `<locked_user>`) resolve to fixtures or `.env`.
+  Never real credentials in features, CSV, or reports.
+- **RTM ownership**: `/2-test-case-generator` creates/replaces rows for its story (Latest result =
+  Pending); `/4-test-report` updates only `Latest result`. Blocked ACs get a row with
+  Test case ID `—` and Coverage `Blocked (Q#)`.
+- **Auth**: login/auth feature tests do not use the authenticated fixture.
 
 ## Severity vs Priority
 
@@ -58,9 +71,8 @@ The project follows a structured Software Testing Life Cycle (STLC). Use the fol
 
 ## Definition of Done (QA view)
 
-- Every AC has ≥1 test case in `qa/rtm.csv`; P1 cases are automated.
-- All P1/P2 tests pass in CI; no open S1/S2 bugs on the story.
-- Regression suite green on the sprint's main branch.
+- Every AC has ≥1 test case in `qa-artifacts/rtm.csv`, or is listed as Blocked with an open question.
+- Every P1 case is automated, unless tagged `@manual` with a documented reason.
 
 ## Common Commands
 

@@ -93,6 +93,7 @@ export const TestData = {
     endpointItems: ['Admin', 'Buzz'],
     emptyQuery: '',
   },
+
 };
 
 export const ErrorMessages = {

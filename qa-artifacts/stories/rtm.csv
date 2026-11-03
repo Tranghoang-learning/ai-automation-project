@@ -22,3 +22,17 @@ SCRUM-22,AC-02,Version consistency across shared-layout pages,TC-SCRUM-22-05,Hig
 SCRUM-22,AC-03,Display copyright notice,TC-SCRUM-22-06,High,Positive,"AC-03; approved test value © 2005 - 2026 OrangeHRM, Inc. All rights reserved.",Pending
 SCRUM-22,ACs 02-03,Suggestion: release information consistency across pages,TC-SCRUM-22-07,High,Suggestion,"AC-02, AC-03; requirement clarification needed for release-specific values and metadata source",Pending
 SCRUM-22,AC-01,Footer is displayed on the Login page,TC-SCRUM-22-08,High,Automated,Evidence confirmed: the loaded Login page displays the footer,Automated
+SCRUM-20,AC-01,Display top navigation content,TC-SCRUM-20-01,High,Positive,AC-01,Pending
+SCRUM-20,AC-01,Keep top navigation fixed while scrolling,TC-SCRUM-20-02,High,State Transition,AC-01,Pending
+SCRUM-20,AC-02,Open Upgrade destination in a new tab,TC-SCRUM-20-04,High,Positive,AC-02,Pending
+SCRUM-20,AC-03; AC-04,Display account area and account menu contents,TC-SCRUM-20-05,High,Positive,"AC-03, AC-04",Pending
+SCRUM-20,AC-04,Display API-sourced About data including Active Employees and Employees Terminated field mapping,TC-SCRUM-20-07,High,Positive,AC-04,Pending
+SCRUM-20,AC-04,Format zero and large API employee totals,TC-SCRUM-20-08,Medium,Boundary,AC-04,Pending
+SCRUM-20,AC-04,Display unavailable About-data message,TC-SCRUM-20-09,High,Negative,AC-04,Pending
+SCRUM-20,AC-04,Dismiss About popup and trap focus,TC-SCRUM-20-10,High,Accessibility,AC-04,Pending
+SCRUM-20,AC-04,Dismiss account menu by outside click and Escape,TC-SCRUM-20-11,High,Negative,AC-04,Pending
+SCRUM-20,AC-04,Navigate to Support in current tab,TC-SCRUM-20-12,High,Positive,AC-04,Pending
+SCRUM-20,AC-04,Navigate to Change Password in current tab,TC-SCRUM-20-13,High,Positive,AC-04,Pending
+SCRUM-20,AC-04,End session and navigate to Login,TC-SCRUM-20-14,High,Positive,AC-04,Pending
+SCRUM-20,AC-05,Open Help destination in a new tab,TC-SCRUM-20-15,High,Positive,AC-05,Pending
+SCRUM-20,AC-02; AC-05,Display error toast for unavailable external destination,TC-SCRUM-20-16,High,Negative,"AC-02, AC-05",Pending
