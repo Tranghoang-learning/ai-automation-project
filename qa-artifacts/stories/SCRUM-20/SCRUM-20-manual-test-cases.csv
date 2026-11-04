@@ -1,0 +1,49 @@
+Test ID,Test Summary,Precondition,Steps,Expected Result,Priority
+TC-SCRUM-20-01,TC-SCRUM-20-01 Verify top navigation content when an authenticated administrator views an application page,Administrator is authenticated; viewport is 1366 x 768,"1. Open an application page
+2. Review the top navigation","1. The current page title is displayed
+2. The Upgrade control is available
+3. The account area is available
+4. The top navigation is visually distinct from the main page content",P1
+TC-SCRUM-20-02,TC-SCRUM-20-02 Verify the top navigation remains fixed while the administrator scrolls,Administrator is authenticated; viewport is 1366 x 768; application page is scrollable,"1. Open a scrollable application page
+2. Scroll the page","The top navigation remains fixed in the viewport",P1
+TC-SCRUM-20-04,TC-SCRUM-20-04 Verify Upgrade opens the specified destination in a new tab,Administrator is authenticated; Upgrade is available; network access or a controlled navigation result is available,"1. Select Upgrade
+2. Observe the browser tabs
+3. Verify the destination URL","A new browser tab opens at https://orangehrm.com/open-source/upgrade-to-advanced",P1
+TC-SCRUM-20-05,TC-SCRUM-20-05 Verify the authenticated account area and account menu contents,Administrator is authenticated; account profile data is available,"1. Review the account area
+2. Open the account menu
+3. Review the menu entries","1. The authenticated administrator's avatar, account name, and downward indicator are displayed
+2. The menu contains About, Support, Change Password, and Logout",P1
+TC-SCRUM-20-07,TC-SCRUM-20-07 Verify About displays authoritative API data,"Administrator is authenticated; account menu is open; About API returns company name, application version, numberOfActiveEmployee, and numberOfPastEmployee","1. Select About
+2. Review the About popup
+3. Compare Active Employees with numberOfActiveEmployee
+4. Compare Employees Terminated with numberOfPastEmployee","The popup displays the title About and the corresponding API values: Active Employees equals numberOfActiveEmployee, and Employees Terminated equals numberOfPastEmployee",P1
+TC-SCRUM-20-08,TC-SCRUM-20-08 Verify employee-total formatting for Active Employees and Employees Terminated,Administrator is authenticated; account menu is open; About API can return the listed values for either employee field,"1. Run independent executions for Active Employees with totals 0, 9999, 10001, and 1200000
+2. Run independent executions for Employees Terminated with totals 0, 9999, 10001, and 1200000
+3. Select About for each execution
+4. Review the field-specific rendered value","For both Active Employees (numberOfActiveEmployee) and Employees Terminated (numberOfPastEmployee): 0 renders as 0; 9999 renders as 9999; 10001 renders as 10001; and 1200000 renders as 1200000",P2
+TC-SCRUM-20-09,TC-SCRUM-20-09 Verify unavailable About data displays the required message,Administrator is authenticated; account menu is open; About API cannot retrieve a required value,"1. Select About
+2. Review the About popup","The About popup displays Data is unavailable to view",P1
+TC-SCRUM-20-10,TC-SCRUM-20-10 Verify About popup focus trapping and dismissal,Administrator is authenticated; About popup is open,"1. Attempt to move focus outside the popup
+2. Press Escape
+3. Open About again
+4. Select the close control","1. Focus remains trapped inside the popup
+2. Escape closes the popup immediately
+3. The close control closes the popup",P1
+TC-SCRUM-20-11,TC-SCRUM-20-11 Verify account-menu dismissal by outside click and Escape,Administrator is authenticated; account menu is open,"1. Click outside the account menu
+2. Open the account menu again
+3. Press Escape","The account menu closes after each dismissal action",P1
+TC-SCRUM-20-12,TC-SCRUM-20-12 Verify Support navigates in the current tab,Administrator is authenticated; account menu is open; Support destination is available,"1. Select Support
+2. Observe the browser tabs
+3. Verify the destination URL","The current browser tab navigates to https://opensource-demo.orangehrmlive.com/web/index.php/help/support; no new tab is required",P1
+TC-SCRUM-20-13,TC-SCRUM-20-13 Verify Change Password navigates in the current tab,Administrator is authenticated; account menu is open; Change Password destination is available,"1. Select Change Password
+2. Observe the browser tabs
+3. Verify the destination URL","The current browser tab navigates to https://opensource-demo.orangehrmlive.com/web/index.php/pim/updatePassword; no new tab is required",P1
+TC-SCRUM-20-14,TC-SCRUM-20-14 Verify Logout ends the session and returns to Login,Administrator is authenticated; account menu is open,"1. Select Logout
+2. Verify the session state
+3. Observe the current tab","The session ends and the current browser tab navigates to the Login page",P1
+TC-SCRUM-20-15,TC-SCRUM-20-15 Verify Help opens the specified destination in a new tab,Administrator is authenticated; help control is available,"1. Select the help control
+2. Observe the browser tabs
+3. Verify the destination URL","A new browser tab opens at https://starterhelp.orangehrm.com/hc/en-us",P1
+TC-SCRUM-20-16,TC-SCRUM-20-16 Verify an unavailable external destination displays an error toast,Administrator is authenticated; external navigation failure can be simulated,"1. Run independent executions with Upgrade unavailable and Help unavailable
+2. Select the corresponding control
+3. Observe the application response","A toast message with the exact text Failed to load is displayed for each unavailable external destination",P1

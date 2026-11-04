@@ -1,5 +1,6 @@
 
 import {
+    APIRequestContext,
     Page,
     test as base,
     expect as expectPlaywright,
@@ -13,6 +14,7 @@ type TestFixtures = {
     loginPage: LoginPage;
     authenticatedPage: Page;
     dashboardPage: DashboardPage;
+    aboutApi: APIRequestContext;
 };
 
 const test = base.extend<TestFixtures>({
@@ -64,6 +66,10 @@ const test = base.extend<TestFixtures>({
         });
 
         await use(page);
+    },
+
+    aboutApi: async ({ authenticatedPage }, use) => {
+        await use(authenticatedPage.context().request);
     },
 });
 

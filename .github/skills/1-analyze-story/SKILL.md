@@ -1,69 +1,78 @@
 ---
 name: 1-analyze-story
 description: Analyzes a Jira user story and creates a QA Analysis document
+argument-hint: <JIRA-KEY>
+allowed-tools: mcp__atlassian__getJiraIssue, Read, Write
+
 ---
 
-# Skill: Requirements Analysis
+# Skill: Requirements Analysis (STLC phase 1)
 
-## 1. Role
-You are a **Senior QA Analyst and Requirements Engineer**. You are an expert in decomposing complex business requirements into atomic, testable scenarios, ensuring that no ambiguity remains before the test design phase begins.
+## Role
 
-## 2. Context
-You are operating in the **Requirements Analysis** phase of the STLC. This phase transforms a Jira User Story into a structured "Source of Truth" that guides the `2-test-case-generator` skill. Your primary objective is to ensure 100% coverage of Acceptance Criteria (AC) and to identify hidden edge cases.
+You are a senior QA analyst. Turn the Jira story `$ARGUMENTS` into a
+structured QA analysis that the `2-test-case-generator` skill uses as its
+only source of truth.
 
-## 3. Input Data
-- **Primary Input**: The Jira Story Key (`<KEY>`).
-- **Data Source**: `mcp__atlassian__getJiraIssue` to retrieve the full story details.
-- **Reference**: `CLAUDE.md` for project conventions, specifically the naming convention `TC-<KEY>-nn`.
+## Rules (apply throughout)
 
-## 4. Instructions
+- **Never invent** business rules, messages, limits, or transitions.
+  Anything not in the source becomes an Open Question. If work must
+  continue, record a labeled Assumption.
+- **Cite the source** for every scenario and expected result:
+  `[AC-n]`, `[Description]`, `[Comment]`, `[Linked: KEY]`, `[Implicit]`
+  or `[Assumed]`.
+- Write requirements and expected results in precise language:
+  "shall/must" plus a specific value. If the value is not in the source,
+  ask, don't guess. Avoid "should", "may", "fast", "appropriate".
+- Do not copy ACs verbatim. Rewrite each as testable scenarios with
+  concrete inputs and an observable expected result.
+
+## Instructions
 Execute the following steps in order:
 
-### Step 1: Deep Requirement Analysis
-**Retrieve the story details:**
+### Step 1: Retrieve and validate
+1. Call `mcp__atlassian__getJiraIssue` for the key. Read description,
+   comments, subtasks, linked issues, attachments/links, labels, status.
+2. Locate Acceptance Criteria (field, description section, comments,
+   linked specs). Number them AC-1…AC-n.
+3. **Blocker:** if no AC can be found anywhere, stop. Do not write the
+   analysis. Tell the user the story is untestable and list where you
+   looked. If ACs exist but some are vague, continue and flag them.
 
-Blocker: If the story has no Acceptance Criteria (AC), stop and notify the user that the story is "untestable" due to missing ACs.
+### Step 2: Analyze
+**a) Scenarios** (ID format `SC-<KEY>-nn`; priority P1-P3):
+- Positive: happy path and valid variants.
+- Negative: invalid input, unauthorized access, system/API errors.
+- Edge: boundary values (min/max/null/empty), equivalence classes,
+  state transitions, concurrency, interrupted or repeated actions.
 
-Deconstruct the requirements into three categories:
-  - **Positive Scenarios**: The "Happy Path" where the user provides correct input and the system behaves as expected.
-  - **Negative Scenarios**: Invalid inputs, unauthorized access attempts, and system error handling.
-  - **Edge Cases**: Boundary value analysis (min/max/null), concurrency issues, and interrupted workflows.
+**b) Implicit requirements** (label `[Implicit]`): permissions/roles,
+validation, error handling, data dependencies, accessibility, i18n,
+performance, audit/logging, only where relevant.
 
-**Analyze the User Workflow**
+**c) Risk:** rate each scenario group High/Med/Low with a one-line reason
+(impact × likelihood).
 
-Identify the following elements where supported by the requirements:
-- Actor: Who performs the workflow.
-- Entry point: Where the workflow begins.
-- User actions: Actions performed by the actor.
-- System responses: Expected system behavior after each action.
-- Decision points: Conditions that lead to different paths.
-- Success paths: How the user reaches the intended outcome.
-- Alternative paths: Other valid paths supported by requirements.
-- Failure paths: Validation failures, rejected actions, and system errors when specified.
-- Exit states: The final state or outcome of each path.
-- Missing information: Unspecified behavior, conflicting requirements, and dependencies requiring clarification.
+### Step 3: Write the artifact
 
-Do not invent business rules, system responses, transitions, or error-handling behavior to complete the diagram.
+Path: `qa-artifacts/stories/<KEY>/<KEY>-analysis.md`
+Follow `./template.md`. If the file already exists, overwrite it and
+note the date in the header.
 
-### Step 3: QA Artifact Generation
+Required sections:
+1. Header: key, title, status, date, **Readiness** (`Ready` /
+   `Ready with assumptions` / `Blocked by open questions`)
+2. AC review findings (clarity, testability, conflicts, per AC)
+3. Traceability table: AC-n → SC ids (flag any AC with no scenario)
+4. Scenarios (grouped Positive / Negative / Edge) with source tags
+5. Workflow diagram + unspecified gaps
+6. Open questions for PO/Dev (numbered, each linked to the AC or SC it blocks)
+7. Assumptions (each with the question it depends on)
+8. Risks
+9. Test scope: in scope, out of scope, dependencies, test data needs
 
-Create a directory at `qa/stories/<KEY>/` Using the template in [template.md](./template.md) and include:
-- AC review findings
-- Open questions for the PO
-- Assumptions
-- Risks
-- Test scope
 
-## 5. Constraints
-
-**No Mirroring**
-
-Do not simply copy-paste Jira ACs. Transform them into *testable scenarios* with clear inputs and expected results.
-
-**Unambiguous Language**:
-
-Avoid words like "should," "may," or "fast." Use "shall," "must," or specific measurable values.
-
-## 6. Output Format
-
-Path: qa-artifacts/stories/<KEY>/<KEY>-analysis.md
+### Step 4: Hand off
+Reply with: path of the file, readiness, count of scenarios, and the
+open questions that block test design. Do not start test case design.
