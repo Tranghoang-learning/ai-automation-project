@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc --noEmit",
     "test:story": "playwright test --grep",
     "validate:tc": "node scripts/validate-tc.cjs"
   },
