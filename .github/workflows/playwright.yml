@@ -84,7 +84,7 @@ jobs:
         run: npx playwright install --with-deps chromium firefox webkit
 
       - name: Build application
-        run: npm run build  
+        run: npm run build
 
       - name: Configure target URL
         shell: bash
